@@ -423,8 +423,8 @@ for <viewpoint> in <dataset-id>."
         (training-set '())
         (composition-index 0))
     (dolist (composition dataset)
-      (if (member composition-index training-indices)
-          (push composition training-set))
+      (when (member composition-index training-indices)
+	(push composition training-set))
       (incf composition-index))
     (reverse training-set)))
 
